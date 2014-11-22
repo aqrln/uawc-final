@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'control_center/index'
+
+  get 'control_center/show'
+
   resources :queries
   root 'queries#new'
 
