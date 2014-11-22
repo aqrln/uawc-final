@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+
+  get 'control_center/index'
+
+  get 'control_center/show'
+
+  resources :queries
+  root 'queries#new'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

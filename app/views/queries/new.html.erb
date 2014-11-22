@@ -1,0 +1,28 @@
+<h1>Queries#new</h1>
+
+<%= form_for @query do |form| %>
+    <p><%= form.label :point_id %></p>
+    <%= form.text_field :point_id %>
+
+    <p><%= form.label :lat %></p>
+    <%= form.text_field :lat %>
+
+    <p><%= form.label :lon %></p>
+    <%= form.text_field :lon %>
+
+    <p><%= form.label :type %></p>
+    <%= form.text_field :type %>
+
+    <p><%= form.label :card_id %></p>
+    <%= form.text_field :card_id %>
+
+    <p><%= form.label :checkin %></p>
+    <%= form.text_field :checkin %>
+
+    <p><%= form.label :checkout %></p>
+    <%= form.text_field :checkout %>
+
+    <br>
+
+    <%= form.submit %>
+<% end %>

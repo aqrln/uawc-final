@@ -5,8 +5,8 @@ class CreateQueries < ActiveRecord::Migration
       t.float :lat
       t.float :lon
       t.integer :type
-      t.integer :card_id
-      t.boolean :checkin
+      t.integer :checkin
+      t.integer :checkout
 
       t.timestamps
     end
