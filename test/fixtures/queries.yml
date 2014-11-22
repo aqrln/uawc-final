@@ -2,16 +2,14 @@
 
 one:
   point_id: 1
-  lat: 1.5
-  lon: 1.5
-  type: 1
-  checkin: 1
-  checkout: 1
+  in_card_id: 1
+  out_card_id: 1
+  checkin: 2014-11-22 16:38:53
+  checkout: 2014-11-22 16:38:53
 
 two:
   point_id: 1
-  lat: 1.5
-  lon: 1.5
-  type: 1
-  checkin: 1
-  checkout: 1
+  in_card_id: 1
+  out_card_id: 1
+  checkin: 2014-11-22 16:38:53
+  checkout: 2014-11-22 16:38:53
