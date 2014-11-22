@@ -1,12 +1,14 @@
 <h1>ControlCenter#index</h1>
 
-<h2>Current trips</h2>
+<h2>Current wrong trips</h2>
 
-<% @current_trips.each do |element| %>
+<% @wrong_trips.each do |element| %>
     <p>current point <%= element.point_id %></p>
-    <p>current lat <%= element.in_card_id %></p>
-    <p>current lon <%= element.out_card_id %></p>
-    <p>current card_id <%= element.checkin %></p>
-    <p>current card_id <%= element.checkout %></p>
+    <p>current lat <%= Point.find(element.point_id).lat %></p>
+    <p>current lon <%= Point.find(element.point_id).lon %></p>
+    <p>current card_id in <%= element.in_card_id %></p>
+    <p>current card_id out <%= element.out_card_id %></p>
+    <p>current time in <%= element.checkin %></p>
+    <p>current time out <%= element.checkout %></p>
     <br>
 <% end %>

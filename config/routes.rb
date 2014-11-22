@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  resources :stations
+  resources :cards
+  resources :points
   resources :control_center
   resources :queries
 
