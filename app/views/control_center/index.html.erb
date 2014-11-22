@@ -1,1 +1,12 @@
 <h1>ControlCenter#index</h1>
+
+<h2>Current trips</h2>
+
+<% @current_trips.each do |element| %>
+    <p>current point <%= element.point_id %></p>
+    <p>current lat <%= element.lat %></p>
+    <p>current lon <%= element.lon %></p>
+    <p>current type <%= element.type %></p>
+    <p>current card_id <%= element.card_id %></p>
+    <br>
+<% end %>

@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
 
-  get 'control_center/index'
-
-  get 'control_center/show'
-
+  resources :stations
+  resources :control_center
   resources :queries
+
   root 'queries#new'
 
   # The priority is based upon order of creation: first created -> highest priority.
