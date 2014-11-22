@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  point_id: 1
+  lat: 1.5
+  lon: 1.5
+  type: 1
+  card_id: 1
+  checkin: false
+
+two:
+  point_id: 1
+  lat: 1.5
+  lon: 1.5
+  type: 1
+  card_id: 1
+  checkin: false
