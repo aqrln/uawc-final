@@ -11,28 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141122132513) do
+ActiveRecord::Schema.define(version: 20141122141719) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "queries", force: true do |t|
-    t.integer  "point_id"
-    t.float    "lat"
-    t.float    "lon"
-    t.integer  "type"
-    t.integer  "checkin"
-    t.integer  "checkout"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "card_id"
+  create_table "cards", force: true do |t|
+    t.integer "from_point_id"
+    t.integer "to_point_id"
   end
 
-  create_table "stations", force: true do |t|
-    t.float    "lat"
-    t.float    "lon"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "points", force: true do |t|
+    t.float   "lat"
+    t.float   "lon"
+    t.integer "type"
+  end
+
+  create_table "queries", force: true do |t|
+    t.integer  "point_id"
+    t.integer  "in_card_id"
+    t.integer  "out_card_id"
+    t.datetime "checkin"
+    t.datetime "checkout"
   end
 
 end

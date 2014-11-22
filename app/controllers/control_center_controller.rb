@@ -6,7 +6,7 @@ class ControlCenterController < ApplicationController
     @current_trips = Array.new
 
     queries.each do |element|
-      if element.checkin == 1 and element.checkout == 0
+      if element.checkin and !element.checkout
         @current_trips << element
       end
     end
