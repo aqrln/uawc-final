@@ -4,9 +4,9 @@
 
 <% @current_trips.each do |element| %>
     <p>current point <%= element.point_id %></p>
-    <p>current lat <%= element.lat %></p>
-    <p>current lon <%= element.lon %></p>
-    <p>current type <%= element.type %></p>
-    <p>current card_id <%= element.card_id %></p>
+    <p>current lat <%= element.in_card_id %></p>
+    <p>current lon <%= element.out_card_id %></p>
+    <p>current card_id <%= element.checkin %></p>
+    <p>current card_id <%= element.checkout %></p>
     <br>
 <% end %>

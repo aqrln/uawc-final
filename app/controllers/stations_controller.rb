@@ -1,21 +1,21 @@
 class StationsController < ApplicationController
 
-  def station_params
-    params.require(:station).permit(:lat, :lon)
+  def point_params
+    params.require(:point).permit(:lat, :lon, :type)
   end
 
   def index
-    @stations = Station.all
+    @points = Point.all
   end
 
   def new
-    @station = Station.new
+    @point = Point.new
   end
 
   def create
-    @station = Station.new(station_params)
-    @station.save
-    redirect_to @station
+    @point = Point.new(point_params)
+    @point.save
+    redirect_to @point
   end
 
 end
