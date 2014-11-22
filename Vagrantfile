@@ -38,6 +38,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "shell", inline: "gem install bundler", privileged: false
   config.vm.provision "shell", inline: "gem install rails", privileged: false
   config.vm.provision "shell", inline: "cd /vagrant && bundle install", run: "always", privileged: false
+  config.vm.provision "shell", inline: "cd /vagrant && rake db:create", privileged: false
+  config.vm.provision "shell", inline: "cd /vagrant && rake db:migrate", run: "always", privileged: false
   config.vm.provision "shell", inline: "cd /vagrant && rails server", run: "always", privileged: false
 
   # Create a private network, which allows host-only access to the machine
