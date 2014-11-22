@@ -3,7 +3,7 @@ class QueriesController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def query_params
-    params.require(:query).permit(:point_id, :lat, :lon, :type, :card_id, :checkin, :checkout)
+    params.require(:query).permit(:point_id, :lat, :lon, :type, :in_card_id, :out_card_id, :checkin, :checkout)
   end
 
   def new
