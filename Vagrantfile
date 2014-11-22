@@ -23,7 +23,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network "forwarded_port", guest: 3000, host: 8888
 
   config.vm.provision "shell", inline: "apt-get update"
-  config.vm.provision "shell", inline: "apt-get install postgresql libpq-dev"
+  config.vm.provision "shell", inline: "apt-get -y install postgresql libpq-dev"
   config.vm.provision "shell", inline: "mkdir -p /usr/local/pgsql/data"
   config.vm.provision "shell", inline: "chown postgres:postgres /usr/local/pgsql/data"
   config.vm.provision "shell", inline: "sudo -u postgres initdb -D /usr/local/pgsql/data"
@@ -34,7 +34,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "shell", inline: "rvm requirements", privileged: false
   config.vm.provision "shell", inline: "rvm install 1.9.3", privileged: false
   config.vm.provision "shell", inline: "rvm use 1.9.3 --default", privileged: false
-  config.vm.provision "shell", inline: "apt-get install nodejs"
+  config.vm.provision "shell", inline: "apt-get -y install nodejs"
   config.vm.provision "shell", inline: "gem install bundler", privileged: false
   config.vm.provision "shell", inline: "gem install rails", privileged: false
   config.vm.provision "shell", inline: "cd /vagrant && bundle install", run: "always", privileged: false
