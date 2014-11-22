@@ -26,8 +26,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "shell", inline: "apt-get -y install postgresql libpq-dev"
   config.vm.provision "shell", inline: "mkdir -p /usr/local/pgsql/data"
   config.vm.provision "shell", inline: "chown postgres:postgres /usr/local/pgsql/data"
-  config.vm.provision "shell", inline: "sudo -u postgres initdb -D /usr/local/pgsql/data"
-  config.vm.provision "shell", inline: "sudo -u postgres createuser -s vagrant"
+  config.vm.provision "shell", inline: "sudo -u postgres /usr/lib/postgresql/9.3/bin/initdb -D /usr/local/pgsql/data"
+  config.vm.provision "shell", inline: "sudo -u postgres /usr/lib/postgresql/9.3/bin/createuser -s vagrant"
   config.vm.provision "shell", inline: "createdb sample_db", privileged: false
   config.vm.provision "shell", inline: "curl -sSL https://get.rvm.io | bash", privileged: false
   config.vm.provision "shell", inline: "source ~/.rvm/scripts/rvm", privileged: false
