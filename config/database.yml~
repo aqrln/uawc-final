@@ -24,8 +24,8 @@ default: &default
 development:
   <<: *default
   database: uwcua_development
-  username: sunmille
-  password: password
+	username: sunmille
+	password: password
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -60,8 +60,8 @@ development:
 test:
   <<: *default
   database: uwcua_test
-  username: sunmille
-  password: password
+username: sunmille
+	password: password
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
@@ -85,4 +85,4 @@ production:
   <<: *default
   database: uwcua_production
   username: sunmille
-  password: password
+	password: password
