@@ -1,4 +1,9 @@
 class CardsController < ApplicationController
+
+  def index
+    @cards = Card.all
+  end
+
   def card_params
     params.require(:card).permit(:from_point_id, :to_point_id)
   end

@@ -3,9 +3,7 @@ class CreatePoints < ActiveRecord::Migration
     create_table :points do |t|
       t.float :lat
       t.float :lon
-      t.integer :type
-
-      t.timestamps
+      t.integer :ttype
     end
   end
 end

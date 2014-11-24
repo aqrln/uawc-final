@@ -1,0 +1,8 @@
+<h1>Cards</h1>
+
+<% @cards.each do |card| %>
+        <p>Card#<%= card.id %> FROM station<%= card.from_point_id %> TO station<%= card.to_point_id %>.</p><br>
+<% end %>
+
+<%= link_to 'Add', new_card_path %><br>
+<%= link_to 'Controls', controller: 'control_center' %>

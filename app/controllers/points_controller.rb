@@ -1,7 +1,7 @@
 class PointsController < ApplicationController
 
   def point_params
-    params.require(:point).permit(:lat, :lon, :type)
+    params.require(:point).permit(:lat, :lon, :ttype)
   end
 
   def index
@@ -15,7 +15,7 @@ class PointsController < ApplicationController
   def create
     @point = Point.new(point_params)
     @point.save
-    redirect_to @point
+    redirect_to points_path
   end
 
 end
