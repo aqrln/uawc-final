@@ -15,28 +15,29 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
-  # config.vm.box_check_update = false
+  config.vm.box_check_update = true
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
-  config.vm.network "forwarded_port", guest: 3000, host: 8888
+  config.vm.network "forwarded_port", guest: 3000, host: 80
 
   config.vm.provision "shell", inline: "apt-get update"
   config.vm.provision "shell", inline: "apt-get -y install postgresql libpq-dev"
   config.vm.provision "shell", inline: "mkdir -p /usr/local/pgsql/data"
   config.vm.provision "shell", inline: "chown postgres:postgres /usr/local/pgsql/data"
   config.vm.provision "shell", inline: "sudo -u postgres /usr/lib/postgresql/9.3/bin/initdb -D /usr/local/pgsql/data"
-  config.vm.provision "shell", inline: "sudo -u postgres /usr/lib/postgresql/9.3/bin/createuser -s vagrant"
+  config.vm.provision "shell", inline: "sudo -u postgres /usr/lib/postgresql/9.3/bin/createuser -d -w vagrant"
   config.vm.provision "shell", inline: "createdb sample_db", privileged: false
-  config.vm.provision "shell", inline: "curl -sSL https://get.rvm.io | bash", privileged: false
-  config.vm.provision "shell", inline: "source ~/.rvm/scripts/rvm", privileged: false
-  config.vm.provision "shell", inline: "rvm requirements", privileged: false
-  config.vm.provision "shell", inline: "rvm install 1.9.3", privileged: false
-  config.vm.provision "shell", inline: "rvm use 1.9.3 --default", privileged: false
+  #config.vm.provision "shell", inline: "curl -sSL https://get.rvm.io | bash", privileged: false
+  #config.vm.provision "shell", inline: "source ~/.rvm/scripts/rvm", privileged: false
+  #config.vm.provision "shell", inline: "rvm requirements", privileged: false
+  #config.vm.provision "shell", inline: "rvm install 1.9.3", privileged: false
+  #config.vm.provision "shell", inline: "rvm use 1.9.3 --default", privileged: false
+  config.vm.provision "shell", inline: "apt-get -y install ruby1.9.3"
   config.vm.provision "shell", inline: "apt-get -y install nodejs"
-  config.vm.provision "shell", inline: "gem install bundler", privileged: false
-  config.vm.provision "shell", inline: "gem install rails", privileged: false
+  config.vm.provision "shell", inline: "sudo gem install bundler", privileged: false
+  config.vm.provision "shell", inline: "sudo gem install rails", privileged: false
   config.vm.provision "shell", inline: "cd /vagrant && bundle install", run: "always", privileged: false
   config.vm.provision "shell", inline: "cd /vagrant && rake db:create", privileged: false
   config.vm.provision "shell", inline: "cd /vagrant && rake db:migrate", run: "always", privileged: false
