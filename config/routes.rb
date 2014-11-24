@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   resources :points
   resources :control_center
   resources :queries
+  post 'receiver' => 'receiver#post'
 
-  root 'queries#new'
+  root 'queries#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

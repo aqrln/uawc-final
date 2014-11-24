@@ -21,4 +21,9 @@ class QueriesController < ApplicationController
     redirect_to @query
   end
 
+  def index
+    @queries = Query.all
+    render json: @queries
+  end
+
 end
